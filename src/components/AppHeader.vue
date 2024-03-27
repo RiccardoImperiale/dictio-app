@@ -15,7 +15,7 @@ export default {
     changeFont(font) {
       this.currentFont = font;
       document.getElementById('app').style.fontFamily = this.currentFont;
-      document.getElementById('input').style.fontFamily = this.currentFont;
+      document.getElementsByClassName('input').style.fontFamily = this.currentFont;
     },
     capitalizeFont(fontUpperCase) {
       return fontUpperCase.charAt(0).toUpperCase() + fontUpperCase.slice(1)
@@ -29,7 +29,7 @@ export default {
 
 <template>
   <header>
-    <div class="container">
+    <div class="container p-inline">
       <img width="40px" src="/img/logo.png" alt="">
       <div class="band"></div>
       <div @click="toggleDropdown" class="font_select">
