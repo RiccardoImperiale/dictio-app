@@ -10,6 +10,7 @@ export default {
 
 <template>
   <AppHeader />
+  <div>fewfwe</div>
 </template>
 
 <style></style>
