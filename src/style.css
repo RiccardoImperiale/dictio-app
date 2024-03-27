@@ -1,0 +1,18 @@
+:root {
+  --dto-dark: #303030;
+  --dto-light: #FFF;
+  --dto-secondary: #757575;
+  --dto-secondary-light: #F5F5F5;
+  --dto-primary: #A545EC;
+
+  /* dark mode 
+  --dto-darkest: #050505;
+  --dto-darker: #1F1F1F;
+  */
+}
+
+* {
+  margin: 0;
+  bottom: 0;
+  box-sizing: border-box;
+}
