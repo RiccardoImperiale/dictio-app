@@ -4,7 +4,7 @@ export default {
   data() {
     return {
       isDropdown: false,
-      currentFont: 'Serif',
+      currentFont: 'serif',
       fonts: ['serif', 'Arial', 'Courier']
     }
   },
@@ -15,11 +15,15 @@ export default {
     changeFont(font) {
       this.currentFont = font;
       document.getElementById('app').style.fontFamily = this.currentFont;
+      document.getElementById('input').style.fontFamily = this.currentFont;
     },
     capitalizeFont(fontUpperCase) {
       return fontUpperCase.charAt(0).toUpperCase() + fontUpperCase.slice(1)
     }
-  }
+  },
+  created() {
+    document.getElementById('app').style.fontFamily = this.currentFont;
+  },
 }
 </script>
 
@@ -46,6 +50,11 @@ export default {
 </template>
 
 <style scoped>
+#app {
+  font-family: Courier;
+
+}
+
 .container {
   display: flex;
   align-items: center;
