@@ -157,7 +157,18 @@ header {
             }
         }
 
-        .toggle::after {
+        .toggle_circle {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background-color: var(--dto-light);
+            border-radius: 50%;
+            left: 3px;
+            top: 3px;
+            right: unset;
+        }
+
+        /* .toggle::after {
             content: '';
             width: 16px;
             height: 16px;
@@ -166,7 +177,7 @@ header {
             border-radius: 50%;
             left: 3px;
             top: 3px;
-        }
+        } */
 
     }
 }

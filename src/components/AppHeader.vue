@@ -5,7 +5,8 @@ export default {
     return {
       isDropdown: false,
       currentFont: 'serif',
-      fonts: ['serif', 'Arial', 'Courier']
+      fonts: ['serif', 'Arial', 'Courier'],
+      isDarkMode: false
     }
   },
   methods: {
@@ -19,6 +20,17 @@ export default {
     },
     capitalizeFont(fontUpperCase) {
       return fontUpperCase.charAt(0).toUpperCase() + fontUpperCase.slice(1)
+    },
+    toggleDarkMode() {
+      if (this.isDarkMode) {
+        this.isDarkMode = false;
+        document.querySelector('.toggle_circle').style.left = '3px';
+        document.querySelector('.toggle_circle').style.right = 'unset';
+      } else {
+        this.isDarkMode = true;
+        document.querySelector('.toggle_circle').style.left = 'unset';
+        document.querySelector('.toggle_circle').style.right = '3px';
+      }
     }
   },
   created() {
@@ -41,8 +53,10 @@ export default {
             {{ capitalizeFont(font) }}</h4>
         </div>
       </div>
-      <div class="darkmode_toggle">
-        <div class="toggle"></div>
+      <div @click="toggleDarkMode" class="darkmode_toggle">
+        <div class="toggle">
+          <div class="toggle_circle"></div>
+        </div>
         <img src="/img/moon.png" alt="">
       </div>
     </div>
