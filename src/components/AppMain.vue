@@ -44,7 +44,8 @@ export default {
                     <h1>{{ store.wordResult.word }}</h1>
                     <h2>{{ store.wordResult.phonetic }}</h2>
                 </div>
-                <div @click="playAudio" class="audio_btn" v-if="store.wordResult.phonetics.length > 0">
+                <div @click="playAudio" class="audio_btn"
+                    v-if="store.wordResult.phonetics.length > 0 && store.wordResult.phonetics[0].audio !== ''">
                     <i v-if="!isPlaying" class="fa-solid fa-play"></i>
                     <i v-else class="fa-solid fa-volume-high"></i>
                     <audio ref="audio" :src="store.wordResult.phonetics[0].audio || store.wordResult.phonetics[1].audio"
@@ -65,7 +66,10 @@ export default {
             </div>
             <div v-show="store.wordResult.meanings[0].synonyms.length > 0" class="synonyms">
                 <h3>Synonyms</h3>
-                <h3 v-for="synonym in store.wordResult.meanings[0].synonyms">{{ synonym }}</h3>
+                <div class="list">
+                    <h3 @click="store.search(synonym)" v-for="synonym in store.wordResult.meanings[0].synonyms">{{
+                synonym }}</h3>
+                </div>
             </div>
 
             <template v-if="store.wordResult.meanings.length > 1">
@@ -88,7 +92,10 @@ export default {
                 </div>
                 <div v-show="store.wordResult.meanings[1].synonyms.length > 0" class="synonyms">
                     <h3>Synonyms</h3>
-                    <h3 v-for="synonym in store.wordResult.meanings[1].synonyms">{{ synonym }}</h3>
+                    <div class="list">
+                        <h3 @click="store.search(synonym)" v-for="synonym in store.wordResult.meanings[1].synonyms">{{
+                synonym }}</h3>
+                    </div>
                 </div>
             </template>
         </div>

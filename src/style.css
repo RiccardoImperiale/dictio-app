@@ -312,19 +312,25 @@ main {
         margin-top: 2rem;
         margin-bottom: 3rem;
         display: flex;
-        flex-wrap: wrap;
         gap: 1rem;
         line-height: .8rem;
 
-        & h3:first-child {
+        >h3 {
             color: var(--dto-secondary-regular);
             font-weight: 400;
             /* display: inline-block; */
         }
 
-        & h3 {
-            color: var(--dto-primary);
-            font-weight: 600;
+        .list {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+
+            & h3 {
+                color: var(--dto-primary);
+                font-weight: 600;
+                cursor: pointer;
+            }
         }
     }
 }
