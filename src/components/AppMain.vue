@@ -44,7 +44,7 @@ export default {
                 placeholder="Search for any word...">
             <span class="error_message" v-show="errorMessage">Word not found...</span>
         </div>
-        <div v-if="!wordExist" class="container p-inline">
+        <div v-if="wordExist" class="container p-inline">
             <div class="word">
                 <div>
                     <h1>{{ wordResult.word }}</h1>
@@ -56,30 +56,43 @@ export default {
             </div>
 
             <div class="divider">
-                <h3>nuon</h3>
+                <!-- noun -->
+                <h3>{{ wordResult.meanings[0].partOfSpeech }}</h3>
                 <div class="line"></div>
             </div>
 
             <div class="meaning">
                 <h3>Meaning</h3>
                 <ul>
-                    <li>
+                    <li v-for="definition in wordResult.meanings[0].definitions">
                         <span>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, aut? A, magnam esse!
-                            Facilis veniam alias minima minus illo vero harum commodi incidunt. Ducimus nihil,
-                            accusantium quia sapiente ullam maxime!
-                        </span>
-                    </li>
-                    <li>
-                        <span>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, aut? A, magnam esse!
-                            Facilis veniam alias minima minus illo vero harum commodi incidunt. Ducimus nihil,
-                            accusantium quia sapiente ullam maxime!
+                            {{ definition.definition }}
                         </span>
                     </li>
                 </ul>
             </div>
 
+            <div class="synonyms">
+                <h3>Synonyms</h3>
+                <h3 v-for="synonym in wordResult.meanings[0].synonyms">{{ synonym }}</h3>
+            </div>
+
+
+            <!-- <div class="divider">
+                <h3>{{ wordResult.meanings[0].partOfSpeech }}</h3>
+                <div class="line"></div>
+            </div>
+
+            <div class="meaning">
+                <h3>Meaning</h3>
+                <ul>
+                    <li v-for="definition in wordResult.meanings[0].definitions">
+                        <span>
+                            {{ definition.definition }}
+                        </span>
+                    </li>
+                </ul>
+            </div> -->
 
 
         </div>

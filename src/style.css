@@ -317,4 +317,21 @@ main {
             }
         }
     }
+
+    .synonyms {
+        margin-top: 2rem;
+        display: flex;
+        gap: 1rem;
+
+        & h3:first-child {
+            color: var(--dto-secondary-regular);
+            font-weight: 400;
+            /* display: inline-block; */
+        }
+
+        & h3 {
+            color: var(--dto-primary);
+            font-weight: 600;
+        }
+    }
 }
