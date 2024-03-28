@@ -338,12 +338,13 @@ main {
 
     & h3 {
         font-size: 1.25rem;
+        margin-right: 1rem;
     }
 
     .line {
         margin-top: 3px;
         border-top: 1px solid var(--dto-lines);
-        width: 92%;
+        width: 100%;
     }
 }
 
