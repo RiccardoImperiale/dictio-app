@@ -6,15 +6,18 @@ export default {
     name: 'AppMain',
     data() {
         return {
-            store
+            store,
+            isPlaying: false
         }
     },
     methods: {
         playAudio() {
+            this.isPlaying = true;
             const audio = this.$refs.audio;
             // Check if audio is paused, if so, play it
             if (audio.paused) {
                 audio.play();
+
             } else {
                 // If audio is already playing, pause and reset to the beginning
                 audio.pause();
@@ -42,9 +45,10 @@ export default {
                     <h2>{{ store.wordResult.phonetic }}</h2>
                 </div>
                 <div @click="playAudio" class="audio_btn">
-                    <i class="fa-solid fa-play"></i>
-                    <audio ref="audio"
-                        :src="store.wordResult.phonetics[0].audio || store.wordResult.phonetics[1].audio"></audio>
+                    <i v-if="!isPlaying" class="fa-solid fa-play"></i>
+                    <i v-else class="fa-solid fa-volume-high"></i>
+                    <audio ref="audio" :src="store.wordResult.phonetics[0].audio || store.wordResult.phonetics[1].audio"
+                        @ended="isPlaying = false"></audio>
                 </div>
             </div>
             <div class="divider">
