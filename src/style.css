@@ -360,6 +360,7 @@ footer {
     .source {
         display: flex;
         gap: 1rem;
+        flex-wrap: wrap;
 
         & a {
             color: var(--dto-secondary-regular);

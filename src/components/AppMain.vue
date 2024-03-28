@@ -44,7 +44,7 @@ export default {
                     <h1>{{ store.wordResult.word }}</h1>
                     <h2>{{ store.wordResult.phonetic }}</h2>
                 </div>
-                <div @click="playAudio" class="audio_btn">
+                <div @click="playAudio" class="audio_btn" v-if="store.wordResult.phonetics.length > 0">
                     <i v-if="!isPlaying" class="fa-solid fa-play"></i>
                     <i v-else class="fa-solid fa-volume-high"></i>
                     <audio ref="audio" :src="store.wordResult.phonetics[0].audio || store.wordResult.phonetics[1].audio"
