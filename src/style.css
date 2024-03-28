@@ -249,7 +249,7 @@ main {
     }
 
     .word {
-        padding: 3rem 0;
+        padding-top: 3rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -282,6 +282,7 @@ main {
     }
 
     .divider {
+        margin-top: 3rem;
         margin-bottom: 2rem;
         display: flex;
         justify-content: space-between;
@@ -316,11 +317,18 @@ main {
                 }
             }
         }
+
+        .example {
+            color: var(--dto-secondary-regular);
+            margin-top: .5rem;
+        }
     }
 
     .synonyms {
         margin-top: 2rem;
+        margin-bottom: 3rem;
         display: flex;
+        flex-wrap: wrap;
         gap: 1rem;
 
         & h3:first-child {

@@ -72,27 +72,35 @@ export default {
                 </ul>
             </div>
 
-            <div class="synonyms">
+            <div v-show="wordResult.meanings[0].synonyms.length > 0" class="synonyms">
                 <h3>Synonyms</h3>
                 <h3 v-for="synonym in wordResult.meanings[0].synonyms">{{ synonym }}</h3>
             </div>
 
-
-            <!-- <div class="divider">
-                <h3>{{ wordResult.meanings[0].partOfSpeech }}</h3>
+            <div class="divider">
+                <!-- verb -->
+                <h3>{{ wordResult.meanings[1].partOfSpeech }}</h3>
                 <div class="line"></div>
             </div>
 
             <div class="meaning">
                 <h3>Meaning</h3>
                 <ul>
-                    <li v-for="definition in wordResult.meanings[0].definitions">
+                    <li v-for="definition in wordResult.meanings[1].definitions">
                         <span>
                             {{ definition.definition }}
                         </span>
+                        <h4 v-show="definition.example" class="example">
+                            "{{ definition.example }}"
+                        </h4>
                     </li>
                 </ul>
-            </div> -->
+            </div>
+
+            <div v-show="wordResult.meanings[1].synonyms.length > 0" class="synonyms">
+                <h3>Synonyms</h3>
+                <h3 v-for="synonym in wordResult.meanings[1].synonyms">{{ synonym }}</h3>
+            </div>
 
 
         </div>
