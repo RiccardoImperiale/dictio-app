@@ -11,25 +11,22 @@ export default {
   },
   methods: {
     toggleDropdown() {
-      this.isDropdown = !this.isDropdown
+      this.isDropdown = !this.isDropdown;
     },
     changeFont(font) {
       this.currentFont = font;
       document.getElementById('app').style.fontFamily = this.currentFont;
-      document.getElementsByClassName('input').style.fontFamily = this.currentFont;
+      document.querySelector('.input').style.fontFamily = this.currentFont;
     },
     capitalizeFont(fontUpperCase) {
-      return fontUpperCase.charAt(0).toUpperCase() + fontUpperCase.slice(1)
+      return fontUpperCase.charAt(0).toUpperCase() + fontUpperCase.slice(1);
     },
     toggleDarkMode() {
+      this.isDarkMode = !this.isDarkMode;
       if (this.isDarkMode) {
-        this.isDarkMode = false;
-        document.querySelector('.toggle_circle').style.left = '3px';
-        document.querySelector('.toggle_circle').style.right = 'unset';
+        document.documentElement.setAttribute('data-theme', 'dark');
       } else {
-        this.isDarkMode = true;
-        document.querySelector('.toggle_circle').style.left = 'unset';
-        document.querySelector('.toggle_circle').style.right = '3px';
+        document.documentElement.setAttribute('data-theme', 'light');
       }
     }
   },
@@ -54,10 +51,11 @@ export default {
         </div>
       </div>
       <div @click="toggleDarkMode" class="darkmode_toggle">
-        <div class="toggle">
-          <div class="toggle_circle"></div>
+        <div :class="isDarkMode && 'right'" class="toggle">
+          <div :class="isDarkMode ? 'right' : 'left'" class="toggle_circle"></div>
         </div>
-        <img src="/img/moon.png" alt="">
+        <img v-if="isDarkMode" src="/img/moon.png" alt="">
+        <img v-else src="/img/sun.png" alt="">
       </div>
     </div>
   </header>
@@ -65,8 +63,7 @@ export default {
 
 <style scoped>
 #app {
-  font-family: Courier;
-
+  font-family: serif;
 }
 
 .container {

@@ -1,16 +1,32 @@
 :root {
+    --dto-primary: #A545EC;
+    --dto-danger: #ff3838da;
+
     --dto-dark: #303030;
     --dto-light: #FFF;
     --dto-secondary: #757575;
+    --dto-secondary-regular: #adadad;
     --dto-secondary-light: #F5F5F5;
-    --dto-primary: #A545EC;
-    --dto-lines: #b1b1b1;
+    --dto-lines: #d5d5d5;
 
+}
 
-    /* dark mode 
-  --dto-darkest: #050505;
-  --dto-darker: #1F1F1F;
-  */
+[data-theme="light"] {
+    --dto-dark: #303030;
+    --dto-light: #FFF;
+    --dto-secondary: #757575;
+    --dto-secondary-regular: #adadad;
+    --dto-secondary-light: #F5F5F5;
+    --dto-lines: #d5d5d5;
+}
+
+[data-theme="dark"] {
+    --dto-dark: #FFF;
+    --dto-light: #050505;
+    --dto-secondary: #c9c9c9;
+    --dto-secondary-regular: #adadad;
+    --dto-secondary-light: #1F1F1F;
+    --dto-lines: #5b5b5b;
 }
 
 * {
@@ -84,7 +100,7 @@ header {
             font-weight: bold;
             font-size: 1.2rem;
             padding: .8rem;
-            width: 102px;
+            /* width: 102px; */
         }
 
         .fa-chevron-down {
@@ -153,31 +169,32 @@ header {
             transition: background-color .25s;
 
             &:hover {
+                background-color: #575757;
+            }
+
+            &.right {
                 background-color: var(--dto-primary);
             }
-        }
 
-        .toggle_circle {
-            position: absolute;
-            width: 16px;
-            height: 16px;
-            background-color: var(--dto-light);
-            border-radius: 50%;
-            left: 3px;
-            top: 3px;
-            right: unset;
-        }
+            .toggle_circle {
+                position: absolute;
+                width: 16px;
+                height: 16px;
+                background-color: var(--dto-light);
+                border-radius: 50%;
+                top: 3px;
 
-        /* .toggle::after {
-            content: '';
-            width: 16px;
-            height: 16px;
-            background-color: var(--dto-light);
-            position: absolute;
-            border-radius: 50%;
-            left: 3px;
-            top: 3px;
-        } */
+                &.left {
+                    left: 3px;
+                    right: unset;
+                }
+
+                &.right {
+                    left: unset;
+                    right: 3px;
+                }
+            }
+        }
 
     }
 }
@@ -200,36 +217,28 @@ main {
             font-weight: 500;
             font-size: .9rem;
         }
-
-        /* &:focus {
-            border: 1px solid var(--dto-lines);
-        } */
     }
 
     .error_message {
-        color: red;
+        color: var(--dto-danger);
         padding: 1.2rem;
         position: relative;
         top: .5rem;
+        font-weight: bold;
+        font-size: .85rem;
     }
-
-
 
     .border_error {
-        border: 1px solid #ff6262;
-
-        &:focus {
-            border: 1px solid #ff6262;
-        }
+        border: 1px solid var(--dto-danger);
     }
 
-    .border_exist {
+    /* .border_exist {
         border: 1px solid var(--dto-primary);
 
         &:focus {
             border: 1px solid var(--dto-primary);
         }
-    }
+    } */
 
     .border_default {
         border: 1px solid transparent;
@@ -239,9 +248,8 @@ main {
         }
     }
 
-
     .word {
-        padding: 2rem 0;
+        padding: 3rem 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -266,9 +274,46 @@ main {
             cursor: pointer;
 
             & i {
-                color: #A545EC;
+                color: var(--dto-primary);
                 font-size: 1.2rem;
                 margin-left: .2rem;
+            }
+        }
+    }
+
+    .divider {
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        & h3 {
+            font-size: 1.25rem;
+        }
+
+        .line {
+            margin-top: 3px;
+            border-top: 1px solid var(--dto-lines);
+            width: 92%;
+        }
+    }
+
+    .meaning {
+        & h3 {
+            margin-bottom: 1.25rem;
+            color: var(--dto-secondary-regular);
+            font-weight: 400;
+        }
+
+        & ul {
+            & li {
+                color: var(--dto-primary);
+                margin-bottom: .8rem;
+
+                & span {
+                    color: var(--dto-dark);
+
+                }
             }
         }
     }

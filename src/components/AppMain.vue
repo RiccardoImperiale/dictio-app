@@ -17,9 +17,10 @@ export default {
                 axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${inputWord}`)
                     .then(res => {
                         this.wordResult = res.data[0];
-                        console.log(this.wordResult);
+                        this.searchText = '';
                         this.wordExist = true;
                         this.errorMessage = false;
+                        console.log(this.wordResult);
                     })
                     .catch(err => {
                         console.error('Error fetching word:', err.name);
@@ -43,7 +44,7 @@ export default {
                 placeholder="Search for any word...">
             <span class="error_message" v-show="errorMessage">Word not found...</span>
         </div>
-        <div v-if="wordExist" class="container p-inline">
+        <div v-if="!wordExist" class="container p-inline">
             <div class="word">
                 <div>
                     <h1>{{ wordResult.word }}</h1>
@@ -53,6 +54,34 @@ export default {
                     <i class="fa-solid fa-play"></i>
                 </div>
             </div>
+
+            <div class="divider">
+                <h3>nuon</h3>
+                <div class="line"></div>
+            </div>
+
+            <div class="meaning">
+                <h3>Meaning</h3>
+                <ul>
+                    <li>
+                        <span>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, aut? A, magnam esse!
+                            Facilis veniam alias minima minus illo vero harum commodi incidunt. Ducimus nihil,
+                            accusantium quia sapiente ullam maxime!
+                        </span>
+                    </li>
+                    <li>
+                        <span>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, aut? A, magnam esse!
+                            Facilis veniam alias minima minus illo vero harum commodi incidunt. Ducimus nihil,
+                            accusantium quia sapiente ullam maxime!
+                        </span>
+                    </li>
+                </ul>
+            </div>
+
+
+
         </div>
     </main>
 </template>
