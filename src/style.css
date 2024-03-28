@@ -281,23 +281,7 @@ main {
         }
     }
 
-    .divider {
-        margin-top: 3rem;
-        margin-bottom: 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
 
-        & h3 {
-            font-size: 1.25rem;
-        }
-
-        .line {
-            margin-top: 3px;
-            border-top: 1px solid var(--dto-lines);
-            width: 92%;
-        }
-    }
 
     .meaning {
         & h3 {
@@ -330,6 +314,7 @@ main {
         display: flex;
         flex-wrap: wrap;
         gap: 1rem;
+        line-height: .8rem;
 
         & h3:first-child {
             color: var(--dto-secondary-regular);
@@ -340,6 +325,43 @@ main {
         & h3 {
             color: var(--dto-primary);
             font-weight: 600;
+        }
+    }
+}
+
+.divider {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & h3 {
+        font-size: 1.25rem;
+    }
+
+    .line {
+        margin-top: 3px;
+        border-top: 1px solid var(--dto-lines);
+        width: 92%;
+    }
+}
+
+footer {
+    padding-bottom: 5rem;
+
+    .divider {
+        .line {
+            width: 100%;
+        }
+    }
+
+    .source {
+        display: flex;
+        gap: 1rem;
+
+        & a {
+            color: var(--dto-secondary-regular);
         }
     }
 }
