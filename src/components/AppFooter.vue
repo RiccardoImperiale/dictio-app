@@ -3,10 +3,6 @@ import { store } from '../store.js';
 
 export default {
     name: 'AppFooter',
-    props: {
-        wordResult: Object,
-        wordExist: Boolean
-    },
     data() {
         return {
             store

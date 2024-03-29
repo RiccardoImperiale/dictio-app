@@ -7,7 +7,7 @@ export default {
     data() {
         return {
             store,
-            isPlaying: false
+            isPlaying: false,
         }
     },
     methods: {
@@ -17,7 +17,6 @@ export default {
             // Check if audio is paused, if so, play it
             if (audio.paused) {
                 audio.play();
-
             } else {
                 // If audio is already playing, pause and reset to the beginning
                 audio.pause();
@@ -32,9 +31,12 @@ export default {
 <template>
     <main>
         <div class="container">
-            <input @keyup="store.cleanError" @keyup.enter="store.search(store.searchText)" v-model="store.searchText"
-                :class="store.errorMessage ? 'border_error' : 'border_default'" class="input" type="text"
-                placeholder="Search for any word...">
+            <div class="input_container">
+                <input @keyup="store.cleanError" @keyup.enter="store.search(store.searchText)"
+                    v-model="store.searchText" :class="store.errorMessage ? 'border_error' : 'border_default'"
+                    class="input" type="text" placeholder="Search for any word...">
+                <i @click="store.search(store.searchText)" class="fa-solid fa-magnifying-glass"></i>
+            </div>
             <span class="error_message" v-show="store.errorMessage">Word not found...</span>
         </div>
         <!-- results -->
@@ -68,7 +70,7 @@ export default {
                 <h3>Synonyms</h3>
                 <div class="list">
                     <h3 @click="store.search(synonym)" v-for="synonym in store.wordResult.meanings[0].synonyms">{{
-                synonym }}</h3>
+                        synonym }}</h3>
                 </div>
             </div>
 
@@ -94,7 +96,7 @@ export default {
                     <h3>Synonyms</h3>
                     <div class="list">
                         <h3 @click="store.search(synonym)" v-for="synonym in store.wordResult.meanings[1].synonyms">{{
-                synonym }}</h3>
+                        synonym }}</h3>
                     </div>
                 </div>
             </template>
