@@ -9,14 +9,26 @@ export default {
     AppHeader,
     AppMain,
     AppFooter
+  },
+  data() {
+    return {
+      wordResult: [],
+      wordExist: false
+    }
+  },
+  methods: {
+    wordData(data) {
+      this.wordResult = data.wordResult;
+      this.wordExist = data.wordExist;
+    }
   }
 }
 </script>
 
 <template>
   <AppHeader />
-  <AppMain />
-  <AppFooter />
+  <AppMain @wordData="wordData" />
+  <AppFooter :wordResult="wordResult" :wordExist="wordExist" />
 </template>
 
 <style></style>
