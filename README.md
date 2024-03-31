@@ -1,5 +1,5 @@
 # Vue Dictionary App
+Watch it live: [Dicto App](https://dictioapp.netlify.app/)
 
-![alt text](./public/screen-1.webp)
-![alt text](./public/screen-2.webp)
-![alt text](./public/screen-3.webp)
+![alt text](./public/screen-3.png)
+![alt text](./public/screen-4.png)
