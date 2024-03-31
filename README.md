@@ -1,5 +1,5 @@
 # Vue Dictionary App
-Watch it live: <a href="https://dictioapp.netlify.app/" target="_blank">Dicto App</a>
+Watch it live: [Dictio App](https://dictioapp.netlify.app/)
 
 ![alt text](./public/screen-3.png)
 ![alt text](./public/screen-4.png)
